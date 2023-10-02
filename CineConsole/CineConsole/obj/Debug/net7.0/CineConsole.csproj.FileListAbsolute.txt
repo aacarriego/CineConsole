@@ -1,0 +1,5 @@
+C:\Users\aacar\source\repos\CineConsole\CineConsole\obj\Debug\net7.0\CineConsole.csproj.AssemblyReference.cache
+C:\Users\aacar\source\repos\CineConsole\CineConsole\obj\Debug\net7.0\CineConsole.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aacar\source\repos\CineConsole\CineConsole\obj\Debug\net7.0\CineConsole.AssemblyInfoInputs.cache
+C:\Users\aacar\source\repos\CineConsole\CineConsole\obj\Debug\net7.0\CineConsole.AssemblyInfo.cs
+C:\Users\aacar\source\repos\CineConsole\CineConsole\obj\Debug\net7.0\CineConsole.csproj.CoreCompileInputs.cache
