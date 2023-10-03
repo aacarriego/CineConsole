@@ -9,7 +9,7 @@ namespace Application.Interface
 {
     public interface IFuncionService
     {
-        void CreateFuncion(Funcion nuevaFuncion);
+        Task CreateFuncion(Funcion nuevaFuncion);
 
         List<Funcion> GetAllFunciones();
 
