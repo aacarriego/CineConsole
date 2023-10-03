@@ -1,16 +1,21 @@
-﻿using Domain;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Domain;
+using Infrastructure;
 
-namespace Application.Service
+namespace PSCineGBA.Controller
 {
     public class FuncionService
     {
-        private readonly CineDbContext _context;
-        public FuncionService(CineDbContext context)
+        private readonly CineDdContext _context;
+
+        public FuncionService(  CineDdContext context)
+        
         {
             _context = context;
         }
@@ -121,5 +126,6 @@ namespace Application.Service
 
             return query.ToList();
         }
+
     }
 }

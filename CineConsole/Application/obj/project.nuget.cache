@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tUrhTdv//pURfzfV13/3hglO7RLWDOqkNbZNrNwRktgWRowcNCGf5PJu0SegRHigJssCSlQftTZX29j1/wQOvw==",
+  "dgSpecHash": "GpeaiOKTpLpL3g4WRGkng9yoMhsmttU6I7P/ItOCiknTWb48SACvH+kPNtKiIIhgZsnUR/qS8NTDwCz0xannjQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\aacar\\source\\repos\\CineConsole\\Application\\Application.csproj",
+  "projectFilePath": "C:\\Users\\aacar\\Source\\Repos\\CineConsole\\CineConsole\\Application\\Application.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
