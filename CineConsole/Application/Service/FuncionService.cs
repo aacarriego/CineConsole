@@ -1,4 +1,5 @@
-﻿using Application.Interface;
+﻿using Application.DTO;
+using Application.Interface;
 using Domain;
 using System;
 using System.Collections.Generic;
@@ -19,14 +20,14 @@ namespace Application.Service
             _query = query;
         }
 
-       public async Task  CreateFuncion(Funcion nuevaFuncion)
+       public async Task<FuncionResponseDTO> CreateFuncion(Funcion nuevaFuncion)
         {
-            _command.InsertFuncion(nuevaFuncion);
+            return await _command.InsertFuncion(nuevaFuncion);
         }
 
         public List<Funcion> GetAllFunciones()
         {
-            throw new NotImplementedException();
+            return _query.GetListFunciones();
         }
 
         public List<Pelicula> GetAllPeliculas()

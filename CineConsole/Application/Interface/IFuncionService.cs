@@ -1,4 +1,5 @@
-﻿using Domain;
+﻿using Application.DTO;
+using Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace Application.Interface
 {
     public interface IFuncionService
     {
-        Task CreateFuncion(Funcion nuevaFuncion);
+        Task<FuncionResponseDTO> CreateFuncion(Funcion nuevaFuncion);
 
         List<Funcion> GetAllFunciones();
 

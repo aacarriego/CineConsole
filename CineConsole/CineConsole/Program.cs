@@ -11,7 +11,9 @@ public partial class Program
     {
 
         var context = new CineDdContext();
-        var funcionService = new FuncionService(context);
+
+
+        
         {
             while (true)
             {
