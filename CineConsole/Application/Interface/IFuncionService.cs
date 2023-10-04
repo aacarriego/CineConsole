@@ -13,10 +13,6 @@ namespace Application.Interface
 
         List<Funcion> GetAllFunciones();
 
-        List<Pelicula> GetAllPeliculas();
-
-        List<Sala> GetAllSalas();
-
         List<Funcion> GetFuncionesPorFechaYPelicula(DateTime? fecha, string tituloPelicula);
 
         List<Funcion> GetFuncionesPorFecha(DateTime fecha);
