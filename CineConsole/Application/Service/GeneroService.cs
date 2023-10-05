@@ -1,21 +1,21 @@
 ﻿using Application.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Domain;
 
 namespace Application.Service
 {
     public class GeneroService : IGeneroService
     {
+        private readonly IGeneroQuery _generoQuery;
+
+        public GeneroService(IGeneroQuery generoQuery)
+        {
+            _generoQuery = generoQuery;
+        }
+
         public string GetGeneroNombreById(int peliculaId)
         {
-            /*  Recibe un generoId como parámetro y busca en la base de datos 
-             *  el género correspondiente al ID proporcionado. 
-             *  Si encuentra el género, devuelve su nombre; de lo contrario
-             *  , devuelve un mensaje indicando que el género no se encontró. */
-            var genero = _context.Generos.FirstOrDefault(g => g.GeneroId == peliculaId);
+
+            var genero = _generoQuery.GetById(peliculaId);
             if (genero != null)
 
             {
@@ -28,5 +28,11 @@ namespace Application.Service
             }
 
         }
+
+        List<Genero> IGeneroService.GetAllGeneros()
+        {
+            return _generoQuery.GetListGeneros();
+        }
     }
+
 }

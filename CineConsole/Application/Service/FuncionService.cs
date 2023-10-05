@@ -1,10 +1,5 @@
 ﻿using Application.Interface;
 using Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Service
 {
@@ -13,8 +8,8 @@ namespace Application.Service
         private readonly IFuncionesQuery _funcionesQuery;
         private readonly IFuncionesCommand _funcionesCommand;
 
-       
-public FuncionService(IFuncionesQuery funcionesQuery, IFuncionesCommand funcionesCommand)
+
+        public FuncionService(IFuncionesQuery funcionesQuery, IFuncionesCommand funcionesCommand)
         {
             _funcionesQuery = funcionesQuery;
             _funcionesCommand = funcionesCommand;
@@ -29,7 +24,7 @@ public FuncionService(IFuncionesQuery funcionesQuery, IFuncionesCommand funcione
         public List<Funcion> GetAllFunciones()
         {
             return _context.Funciones.ToList();
-        }      
+        }
 
         public List<Funcion> GetFuncionesPorFechaYPelicula(DateTime? fecha, string tituloPelicula)
         {
