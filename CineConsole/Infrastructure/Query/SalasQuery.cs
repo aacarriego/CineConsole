@@ -19,7 +19,7 @@ namespace Infrastructure.Query
 
         public List<Sala> GetListSalas()
         {
-            return _context.Salas.ToList();
+          return _context.Salas.ToList();
         }
     }
 }

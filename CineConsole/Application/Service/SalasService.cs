@@ -1,5 +1,10 @@
 ﻿using Application.Interface;
 using Domain;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Application.Service
 {
@@ -14,13 +19,13 @@ namespace Application.Service
 
         public List<Sala> GetAllSalas()
         {
-            return  _salasQuery.GetListSalas();
+            return _salasQuery.GetListSalas();
         }
 
         public string GetSalaNombreById(int salaId)
         {
 
-            var sala = _salasQuery.GetById(salaId);
+            var sala = _salasQuery.GetById(salaId); 
 
             if (sala != null)
             {

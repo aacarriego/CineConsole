@@ -2675,11 +2675,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\aacar\\Source\\Repos\\CineConsole\\CineConsole\\CineConsole\\CineConsole.csproj",
+      "projectUniqueName": "C:\\Users\\aacar\\source\\repos\\CineConsole\\CineConsole\\CineConsole\\CineConsole.csproj",
       "projectName": "CineConsole",
-      "projectPath": "C:\\Users\\aacar\\Source\\Repos\\CineConsole\\CineConsole\\CineConsole\\CineConsole.csproj",
+      "projectPath": "C:\\Users\\aacar\\source\\repos\\CineConsole\\CineConsole\\CineConsole\\CineConsole.csproj",
       "packagesPath": "C:\\Users\\aacar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\aacar\\Source\\Repos\\CineConsole\\CineConsole\\CineConsole\\obj\\",
+      "outputPath": "C:\\Users\\aacar\\source\\repos\\CineConsole\\CineConsole\\CineConsole\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\aacar\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2696,8 +2696,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\aacar\\Source\\Repos\\CineConsole\\CineConsole\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\aacar\\Source\\Repos\\CineConsole\\CineConsole\\Infrastructure\\Infrastructure.csproj"
+            "C:\\Users\\aacar\\source\\repos\\CineConsole\\CineConsole\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\aacar\\source\\repos\\CineConsole\\CineConsole\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }

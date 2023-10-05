@@ -1,5 +1,10 @@
 ﻿using Application.Interface;
 using Domain;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Infrastructure.Query
 {
@@ -18,7 +23,7 @@ namespace Infrastructure.Query
 
         public List<Pelicula> GetListPeliculas()
         {
-            return _context.Peliculas.ToList();
+          return _context.Peliculas.ToList();
         }
     }
 }

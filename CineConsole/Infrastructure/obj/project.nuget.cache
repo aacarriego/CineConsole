@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "i0rVlg2e7vqJvffuoQnvjuelU0ST8xgc5QdfLxUoibXcTxGyKh4w92R7kJediryiUsENmxRbCrqTuOndi69bDA==",
+  "dgSpecHash": "3BLv5xAJQ0F2iaMJzELRVRNgwUzeiTJzwhiGqFAY5BVUfRegEysXF1qxvSpdF5X+Qv5f2qoDBBcanwtHBMXEHQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\aacar\\Source\\Repos\\CineConsole\\CineConsole\\Infrastructure\\Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\aacar\\source\\repos\\CineConsole\\CineConsole\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\aacar\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\aacar\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

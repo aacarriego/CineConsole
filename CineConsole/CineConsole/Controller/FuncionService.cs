@@ -1,6 +1,12 @@
-﻿using Domain;
-using Infrastructure;
+﻿
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Domain;
+using Infrastructure;
 
 namespace PSCineGBA.Controller
 {
@@ -8,8 +14,8 @@ namespace PSCineGBA.Controller
     {
         private readonly CineDdContext _context;
 
-        public FuncionService(CineDdContext context)
-
+        public FuncionService(  CineDdContext context)
+        
         {
             _context = context;
         }

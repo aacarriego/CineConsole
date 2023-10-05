@@ -1,5 +1,10 @@
 ﻿using Application.Interface;
 using Domain;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Application.Service
 {
@@ -12,9 +17,9 @@ namespace Application.Service
             _generoQuery = generoQuery;
         }
 
-        public string GetGeneroNombreById(int peliculaId)
+        public string  GetGeneroNombreById(int peliculaId)
         {
-
+           
             var genero = _generoQuery.GetById(peliculaId);
             if (genero != null)
 
