@@ -15,11 +15,9 @@ namespace Application.Interface
 
         public Funcion GetFuncionById(int funcionId);
 
-        public List<Funcion> GetListaBySalaId(int salaId);
+        public List<Funcion> GetListaByFecha( DateTime fecha);
 
-        public List<Funcion> GetListaByFecha(int salaId, DateTime fecha);
-
-        public List<Funcion> GetListaByTituloAndFecha(int peliculaId, DateTime fecha);
+        public List<Funcion> GetListaByTituloAndFecha(string tituloPelicula, DateTime? fecha);
 
 
     }

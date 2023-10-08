@@ -18,7 +18,7 @@ namespace Infrastructure.Query
         }
         public Pelicula GetById(int peliculaId)
         {
-            throw new NotImplementedException();
+            return _context.Peliculas.FirstOrDefault(p => p.PeliculaId == peliculaId);
         }
 
         public List<Pelicula> GetListPeliculas()

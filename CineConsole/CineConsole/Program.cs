@@ -1,17 +1,37 @@
-﻿using Domain;
+﻿using Application.Service;
+using Domain;
 using Infrastructure;
-using PSCineGBA.Controller;
+using Infrastructure.Command;
+using Infrastructure.Query;
+using Microsoft.EntityFrameworkCore;
+
 
 
 
 
 public partial class Program
-{   
+{
     static void Main(string[] args)
     {
-
         var context = new CineDdContext();
-        var funcionService = new FuncionService(context);
+
+        var generoQuery = new GeneroQuery(context);
+        var funcionesQuery = new FuncionesQuery(context);
+        var funcionesCommand = new FuncionesCommand(context);
+        // Crear una instancia de FuncionesServices
+        var funcionesServices = new FuncionService(funcionesQuery, funcionesCommand);
+
+        var salasQuery = new SalasQuery(context);
+        // Crear una instancia de SalasService
+        var salasService = new SalasService( salasQuery);
+
+        var peliculasQuery = new PeliculaQuery(context);
+        // Crear una instancia de PeliculaService
+        var peliculasService = new PeliculasService( peliculasQuery);
+
+        var generoService = new GeneroService(generoQuery);
+
+
         {
             while (true)
             {
@@ -79,7 +99,7 @@ public partial class Program
                         nuevaFuncion.Horario = horario;
 
                         // Listar peliculas disponibles
-                        var todaslaspeliculas = funcionService.GetAllPeliculas();
+                        var todaslaspeliculas = peliculasService.GetAllPeliculas();
                         Console.WriteLine("Peliculas disponibles:");
                         foreach (var pelicula in todaslaspeliculas)
                         {
@@ -112,7 +132,7 @@ public partial class Program
                         nuevaFuncion.PeliculaId = peliculaId;
 
                         // salas disponibles
-                        var salas = funcionService.GetAllSalas();
+                        List<Sala> salas = salasService.GetAllSalas();
                         Console.WriteLine("Salas disponibles:");
                         foreach (var sala in salas)
                         {
@@ -145,14 +165,18 @@ public partial class Program
                         Console.WriteLine();
                         Console.WriteLine("Datos de la nueva función:");
                         Console.WriteLine($"Fecha: {nuevaFuncion.Fecha.ToString("yyyy-MM-dd")}, Horario: {nuevaFuncion.Horario.ToString("HH:mm:ss")}");
-                        string peliculaTitulo = funcionService.GetPeliculaTituloById(nuevaFuncion.PeliculaId);
-                        string salaNombre = funcionService.GetSalaNombreById(nuevaFuncion.SalaId);
-                        string generoNombre = funcionService.GetGeneroNombreById(nuevaFuncion.PeliculaId);
+                        
+                        string peliculaTitulo = peliculasService.GetPeliculaTituloById(nuevaFuncion.PeliculaId);
+                        
+                        string salaNombre = salasService.GetSalaNombreById(nuevaFuncion.SalaId);
+                        
+                        string generoNombre = generoService.GetGeneroNombreById(nuevaFuncion.PeliculaId);
+                        
                         Console.WriteLine($"Película: {peliculaTitulo}");
                         Console.WriteLine($"Genero: {generoNombre} ");
                         Console.WriteLine($"Sala: {salaNombre}");
 
-                        funcionService.CreateFuncion(nuevaFuncion);
+                        funcionesServices.CreateFuncion(nuevaFuncion);
                         Console.WriteLine(" ");
                         Console.WriteLine(" ");
                         Console.WriteLine("Función registrada.");
@@ -169,7 +193,7 @@ public partial class Program
                         Console.WriteLine("Buscador de funciones por película: ");
 
                         // Traer todas las películas disponibles
-                        var peliculas = funcionService.GetAllPeliculas();
+                        var peliculas = peliculasService.GetAllPeliculas();
 
                         if (peliculas.Any())
                         {
@@ -208,7 +232,7 @@ public partial class Program
                             }
 
                             //  Mostrar las funciones para la película seleccionada
-                            var funcionesPorPelicula = funcionService.GetFuncionesPorPelicula(seleccion);
+                            var funcionesPorPelicula = funcionesServices.GetFuncionesPorPelicula(seleccion);
 
                             if (funcionesPorPelicula.Any())
                             {
@@ -218,9 +242,9 @@ public partial class Program
                                 foreach (var funcion in funcionesPorPelicula)
                                 {
                                     Console.WriteLine($"Funcion N°: {funcion.FuncionId}, Fecha: {funcion.Fecha.ToString("yyyy-MM-dd")}, Hora: {funcion.Horario.ToString("HH:mm:ss")}");
-                                    string nombredelasala = funcionService.GetSalaNombreById(funcion.SalaId);
-                                    string nombredelgenero = funcionService.GetGeneroNombreById(funcion.PeliculaId);
-                                    string nombredelapelicula = funcionService.GetPeliculaTituloById(funcion.PeliculaId);
+                                    string nombredelasala = salasService.GetSalaNombreById(funcion.SalaId);
+                                    string nombredelgenero = generoService.GetGeneroNombreById(funcion.PeliculaId);
+                                    string nombredelapelicula = peliculasService.GetPeliculaTituloById(funcion.PeliculaId);
                                     Console.WriteLine($"Sala: {nombredelasala} ");
                                     Console.WriteLine($"Película: {nombredelapelicula} ");
                                     Console.WriteLine($"Genero: {nombredelgenero}");
@@ -258,7 +282,7 @@ public partial class Program
 
                         if (fechaFiltro.HasValue)
                         {
-                            var funcionesFiltradas = funcionService.GetFuncionesPorFecha(fechaFiltro.Value);
+                            var funcionesFiltradas = funcionesServices.GetFuncionesPorFecha(fechaFiltro.Value);
 
                             if (funcionesFiltradas.Any())
                             {
@@ -267,9 +291,9 @@ public partial class Program
                                     Console.WriteLine("--------------------------------------------");
                                     Console.WriteLine($"Funcion N°: {funcion.FuncionId}, Fecha: {funcion.Fecha.ToString("yyyy-MM-dd")}, Hora: {funcion.Horario.ToString("HH:mm:ss")}");
                                     Console.WriteLine($"Pelicula: {funcion.Peliculas.Titulo}, Sala: {funcion.Salas.Nombre}");
-                                    string nombredelasala = funcionService.GetSalaNombreById(funcion.SalaId);
-                                    string nombredelgenero = funcionService.GetGeneroNombreById(funcion.PeliculaId);
-                                    string nombredelapelicula = funcionService.GetPeliculaTituloById(funcion.PeliculaId);
+                                    string nombredelasala = salasService.GetSalaNombreById(funcion.SalaId);
+                                    string nombredelgenero = generoService.GetGeneroNombreById(funcion.PeliculaId);
+                                    string nombredelapelicula = peliculasService.GetPeliculaTituloById(funcion.PeliculaId);
                                     Console.WriteLine($"{nombredelasala}, Película: {nombredelapelicula}, Genero: {nombredelgenero}");
                                     Console.WriteLine("--------------------------------------------");
                                 }
@@ -298,5 +322,3 @@ public partial class Program
         }
     }
 }
-
-

@@ -1,6 +1,6 @@
 ﻿using Application.Interface;
 using Domain;
-
+using System.ComponentModel;
 
 namespace Application.Service
 {
@@ -29,38 +29,18 @@ public FuncionService(IFuncionesQuery funcionesQuery, IFuncionesCommand funcione
 
         public List<Funcion> GetFuncionesPorFechaYPelicula(DateTime? fecha, string tituloPelicula)
         {
-            IQueryable<Funcion> query = _funcionesQuery.GetListaByTituloAndFecha(tituloPelicula, fecha);
-
-            if (fecha.HasValue)
-            {
-                query = query.Where(f => f.Fecha.Date == fecha.Value.Date);
-            }
-
-            if (!string.IsNullOrEmpty(tituloPelicula))
-            {
-                query = query.Where(f => f.Peliculas.Titulo.Contains(tituloPelicula));
-            }
-
-            return query.ToList();
+            return _funcionesQuery.GetListaByTituloAndFecha(tituloPelicula, fecha);
         }
 
         public List<Funcion> GetFuncionesPorFecha(DateTime fecha)
         {
-            IQueryable<Funcion> query = _context.Funciones.Include(f => f.Peliculas)
-                                                          .Include(f => f.Salas);
-
-            query = query.Where(f => f.Fecha.Date == fecha.Date);
-
-            return query.ToList();
+           return _funcionesQuery.GetListaByFecha(fecha);
         }
 
         public List<Funcion> GetFuncionesPorPelicula(int peliculaId)
         {
-            IQueryable<Funcion> query = _context.Funciones.Include(f => f.Peliculas).Include(f => f.Salas);
-
-            query = query.Where(f => f.PeliculaId == peliculaId);
-
-            return query.ToList();
+            return _funcionesQuery.GetListFuncionesByPeliculaId(peliculaId);
+ 
         }
 
     }
