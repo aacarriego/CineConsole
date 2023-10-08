@@ -3,13 +3,13 @@ using Domain;
 using Infrastructure;
 using Infrastructure.Command;
 using Infrastructure.Query;
-using Microsoft.EntityFrameworkCore;
 
 
 
 
 
-public partial class Program
+
+public  class Program
 {
     static void Main(string[] args)
     {
