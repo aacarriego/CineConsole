@@ -20,6 +20,6 @@ namespace Domain
         public string Usuario { get; set; }
 
         //FUNCION ASOCIADA AL TKT
-        public virtual Funcion funcion { get; set; }
+        public virtual Funcion Funciones { get; set; }
     }
 }

@@ -15,7 +15,7 @@ namespace Domain
         public int PeliculaId { get; set; }
 
         // FK
-        public virtual int GeneroId { get; set; }
+        public virtual int Genero { get; set; }
 
         public Genero genero { get; set; }
 
